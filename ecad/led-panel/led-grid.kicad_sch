@@ -1,0 +1,941 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "bf06c9e1-9d6d-433a-b288-7daac61b6734")
+	(paper "A4")
+	(lib_symbols)
+	(junction
+		(at 101.6 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0114ee40-fe8d-454a-93e4-8f9a5b18a713")
+	)
+	(junction
+		(at 139.7 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2e07d599-8345-4619-aa79-b8526f998d99")
+	)
+	(junction
+		(at 139.7 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "482c7e2c-3f97-49a1-9c5a-21a72e40bc8d")
+	)
+	(junction
+		(at 158.75 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6dd64b72-6357-4287-b479-fbbd722e7257")
+	)
+	(junction
+		(at 101.6 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "72ceac78-ee92-49cf-8b92-4275ddbd5c63")
+	)
+	(junction
+		(at 177.8 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "747ed9da-a700-4a8a-8c29-3602514db604")
+	)
+	(junction
+		(at 158.75 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bd4a42f3-cdfc-450c-9d89-6fa9e4fdba3c")
+	)
+	(junction
+		(at 215.9 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c42366b8-8df8-4f7e-a5d1-0764bfe88115")
+	)
+	(junction
+		(at 177.8 44.45)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d2395a47-5412-4a1c-bc6b-98079b1de084")
+	)
+	(junction
+		(at 215.9 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ff2f7db8-2122-43d7-96c2-7636739b75be")
+	)
+	(no_connect
+		(at 266.7 57.15)
+		(uuid "66dd1d75-a659-4fd8-9dff-57528c907b19")
+	)
+	(wire
+		(pts
+			(xy 101.6 69.85) (xy 63.5 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "040d3de0-486d-4b86-836a-35c644f8fbff")
+	)
+	(wire
+		(pts
+			(xy 63.5 44.45) (xy 63.5 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0b4d011c-e637-4478-bb11-f2481e384aad")
+	)
+	(wire
+		(pts
+			(xy 158.75 44.45) (xy 139.7 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0cdfe706-70bd-4070-82d5-573e282ed798")
+	)
+	(wire
+		(pts
+			(xy 139.7 44.45) (xy 139.7 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "24f0e7a6-a721-45a3-ab55-83bd4de0b6ef")
+	)
+	(wire
+		(pts
+			(xy 254 44.45) (xy 215.9 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2bd272ad-3158-4a37-9bb1-8e372b986f06")
+	)
+	(wire
+		(pts
+			(xy 101.6 44.45) (xy 63.5 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "387f38f2-2779-4bd8-a4df-49e7b23ed585")
+	)
+	(wire
+		(pts
+			(xy 101.6 44.45) (xy 101.6 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "39e42ac3-70d9-4e00-9a9a-9d59d5501a6d")
+	)
+	(wire
+		(pts
+			(xy 158.75 69.85) (xy 177.8 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3e556456-24e6-4d15-91fa-101782723ff4")
+	)
+	(wire
+		(pts
+			(xy 215.9 44.45) (xy 215.9 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4ae5a6d2-972f-49ec-bae7-2fe570830d09")
+	)
+	(wire
+		(pts
+			(xy 44.45 57.15) (xy 50.8 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "50110979-fa44-4fab-9099-f5894312ae98")
+	)
+	(wire
+		(pts
+			(xy 76.2 57.15) (xy 88.9 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "50a8045b-6f72-45ed-ab65-22235edd672d")
+	)
+	(wire
+		(pts
+			(xy 177.8 44.45) (xy 177.8 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53cf1a1f-7190-4df2-9b88-4212a0be3315")
+	)
+	(wire
+		(pts
+			(xy 215.9 44.45) (xy 177.8 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53fcdd52-6e80-4220-862c-e46548a2e535")
+	)
+	(wire
+		(pts
+			(xy 254 63.5) (xy 254 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a866cf3-d939-4ca0-ad6b-12f64cec9f9b")
+	)
+	(wire
+		(pts
+			(xy 177.8 63.5) (xy 177.8 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6b4dcf19-1e8b-4394-857f-e370c846cf55")
+	)
+	(wire
+		(pts
+			(xy 158.75 72.39) (xy 158.75 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6d3f5380-e38c-4ab3-a714-9ee34de2ec21")
+	)
+	(wire
+		(pts
+			(xy 139.7 44.45) (xy 101.6 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ee5a8fe-0d52-47f9-9649-543cc3792dca")
+	)
+	(wire
+		(pts
+			(xy 139.7 63.5) (xy 139.7 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "702b980e-e93b-4ae0-98de-a86e9e1e60f3")
+	)
+	(wire
+		(pts
+			(xy 158.75 69.85) (xy 139.7 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "796412ab-8feb-415f-bb15-34d9fd26f835")
+	)
+	(wire
+		(pts
+			(xy 63.5 69.85) (xy 63.5 63.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "83704630-f8c5-4e01-937f-7810008abe7b")
+	)
+	(wire
+		(pts
+			(xy 215.9 69.85) (xy 177.8 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "83de7869-1d3f-4e1d-ad30-afac57b00d8c")
+	)
+	(wire
+		(pts
+			(xy 139.7 69.85) (xy 101.6 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "890868e2-825d-4eaa-8d23-9d1a2bd7a237")
+	)
+	(wire
+		(pts
+			(xy 152.4 57.15) (xy 165.1 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8a263c17-c088-4da6-bb32-0ab6f3cc97ac")
+	)
+	(wire
+		(pts
+			(xy 101.6 63.5) (xy 101.6 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "95634215-3e1e-4370-9db6-1f0943656c95")
+	)
+	(wire
+		(pts
+			(xy 158.75 41.91) (xy 158.75 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bf3cf406-e8d7-446b-8a4b-92447f218203")
+	)
+	(wire
+		(pts
+			(xy 254 44.45) (xy 254 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d5f2d8f6-9f15-416f-862c-d767995df1e6")
+	)
+	(wire
+		(pts
+			(xy 228.6 57.15) (xy 241.3 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d6742998-4ad8-490a-ba5d-616aef53ec1c")
+	)
+	(wire
+		(pts
+			(xy 215.9 63.5) (xy 215.9 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dbabdab6-c556-48f3-9435-13dad1e2dd63")
+	)
+	(wire
+		(pts
+			(xy 158.75 44.45) (xy 177.8 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "de8d8684-70c5-4579-a51e-a091b7612187")
+	)
+	(wire
+		(pts
+			(xy 114.3 57.15) (xy 127 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e4d5b839-ae2e-47dd-8135-51b91a1fac05")
+	)
+	(wire
+		(pts
+			(xy 190.5 57.15) (xy 203.2 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e6a8699d-ee98-4f0d-b8a6-5875632e317c")
+	)
+	(wire
+		(pts
+			(xy 254 69.85) (xy 215.9 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f7104574-ae9d-48f6-873c-289921680c92")
+	)
+	(hierarchical_label "VCC"
+		(shape bidirectional)
+		(at 158.75 41.91 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "879ad35a-5bed-4220-8cb3-9c8d0c48ff9b")
+	)
+	(hierarchical_label "GND"
+		(shape bidirectional)
+		(at 158.75 72.39 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "aa45734a-bcf8-4a3c-8814-07a4e77503d4")
+	)
+	(hierarchical_label "SIG"
+		(shape input)
+		(at 44.45 57.15 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d37be429-1c50-40b3-aaaa-57edd0731b6c")
+	)
+	(sheet
+		(at 50.8 50.8)
+		(size 25.4 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "072457d1-ce17-4f54-b3c1-015eba399732")
+		(property "Sheetname" "led-row"
+			(at 50.8 50.0884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "led-row.kicad_sch"
+			(at 50.8 64.0846 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "5V" bidirectional
+			(at 63.5 50.8 90)
+			(uuid "aece3150-5de2-442e-9613-0877787c1186")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GND" bidirectional
+			(at 63.5 63.5 270)
+			(uuid "4a925826-926e-42bf-954d-8058b133b644")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "DOUT" output
+			(at 76.2 57.15 0)
+			(uuid "ec1f57f0-e002-4658-958b-da714ca119dd")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "DIN" input
+			(at 50.8 57.15 180)
+			(uuid "3292c355-0a74-4668-b4f0-2470345d282b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "lightbox"
+				(path "/cc3f41af-fab2-4e21-b70d-65af2cb20a50/b19b5857-d325-4e7d-b776-ff7d1606dd98"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 127 50.8)
+		(size 25.4 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "07e96340-6f05-486b-9fe5-a850bf585303")
+		(property "Sheetname" "led-row2"
+			(at 127 50.0884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "led-row.kicad_sch"
+			(at 127 64.0846 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "5V" bidirectional
+			(at 139.7 50.8 90)
+			(uuid "3ea64fbc-9be4-4f88-9f83-000841d76ff0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GND" bidirectional
+			(at 139.7 63.5 270)
+			(uuid "4b63f699-02b9-4d97-899d-4dd854250bf7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "DOUT" output
+			(at 152.4 57.15 0)
+			(uuid "7017fa27-ff05-4b46-b698-3a6bb79ea2d4")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "DIN" input
+			(at 127 57.15 180)
+			(uuid "0cdc7013-3a69-4e8b-adf1-014fb8e154fb")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "lightbox"
+				(path "/cc3f41af-fab2-4e21-b70d-65af2cb20a50/b19b5857-d325-4e7d-b776-ff7d1606dd98"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 203.2 50.8)
+		(size 25.4 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "2df6d256-9fbc-4d49-bc8c-c2465c1becca")
+		(property "Sheetname" "led-row4"
+			(at 203.2 50.0884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "led-row.kicad_sch"
+			(at 203.2 64.0846 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "5V" bidirectional
+			(at 215.9 50.8 90)
+			(uuid "46afd9b4-8aca-4e0e-8b91-6ed266f601ef")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GND" bidirectional
+			(at 215.9 63.5 270)
+			(uuid "2d66acdf-603d-4d0a-aee6-01e440bad424")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "DOUT" output
+			(at 228.6 57.15 0)
+			(uuid "59b08d81-5584-442d-9ca9-24afc6b14e79")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "DIN" input
+			(at 203.2 57.15 180)
+			(uuid "81b18613-1db3-4a28-b739-c68479200031")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "lightbox"
+				(path "/cc3f41af-fab2-4e21-b70d-65af2cb20a50/b19b5857-d325-4e7d-b776-ff7d1606dd98"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 88.9 50.8)
+		(size 25.4 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "3c1478b8-9c6c-4813-89c4-7f48e8aec6fa")
+		(property "Sheetname" "led-row1"
+			(at 88.9 50.0884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "led-row.kicad_sch"
+			(at 88.9 64.0846 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "5V" bidirectional
+			(at 101.6 50.8 90)
+			(uuid "e61f5aed-3a2f-478d-aa41-743a9c2bd5b4")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GND" bidirectional
+			(at 101.6 63.5 270)
+			(uuid "ce4c284a-1908-4525-ac6f-6b674db8b21a")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "DOUT" output
+			(at 114.3 57.15 0)
+			(uuid "d6ef7146-4e69-40bc-9172-b77bdd528b2c")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "DIN" input
+			(at 88.9 57.15 180)
+			(uuid "5a63bf9a-562d-4d60-805e-b56bb0c9ec15")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "lightbox"
+				(path "/cc3f41af-fab2-4e21-b70d-65af2cb20a50/b19b5857-d325-4e7d-b776-ff7d1606dd98"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 165.1 50.8)
+		(size 25.4 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "a513f531-6204-49e8-8629-87e5c0c4ed8a")
+		(property "Sheetname" "led-row3"
+			(at 165.1 50.0884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "led-row.kicad_sch"
+			(at 165.1 64.0846 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "5V" bidirectional
+			(at 177.8 50.8 90)
+			(uuid "0bc6bbda-a4b7-4297-a161-b3eaeef98b07")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GND" bidirectional
+			(at 177.8 63.5 270)
+			(uuid "5bb82db1-ed92-4698-baf5-9fca53016efb")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "DOUT" output
+			(at 190.5 57.15 0)
+			(uuid "c5ad7628-7530-4fce-8b44-0d30ba9e68ee")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "DIN" input
+			(at 165.1 57.15 180)
+			(uuid "0bb6d2db-e7db-4f3b-b09a-c360a914f6c3")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "lightbox"
+				(path "/cc3f41af-fab2-4e21-b70d-65af2cb20a50/b19b5857-d325-4e7d-b776-ff7d1606dd98"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 241.3 50.8)
+		(size 25.4 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "f2551fc0-b852-455e-a691-0da826afafcf")
+		(property "Sheetname" "led-row5"
+			(at 241.3 50.0884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "led-row.kicad_sch"
+			(at 241.3 64.0846 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "5V" bidirectional
+			(at 254 50.8 90)
+			(uuid "85dda6fc-63e8-4c27-9ed8-c6c4cf409b73")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "GND" bidirectional
+			(at 254 63.5 270)
+			(uuid "d9a88e63-9b8d-4790-9415-9e46ac36cf60")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "DOUT" output
+			(at 266.7 57.15 0)
+			(uuid "fe276421-e530-482a-8ebf-df5dd64b9625")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(pin "DIN" input
+			(at 241.3 57.15 180)
+			(uuid "601851f8-9af2-4061-964a-f35878bd92b7")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(instances
+			(project "lightbox"
+				(path "/cc3f41af-fab2-4e21-b70d-65af2cb20a50/b19b5857-d325-4e7d-b776-ff7d1606dd98"
+					(page "7")
+				)
+			)
+		)
+	)
+)

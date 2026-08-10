@@ -466,7 +466,7 @@
       "no_connect_dangling": "warning",
       "pin_not_connected": "error",
       "pin_not_driven": "error",
-      "pin_to_pin": "error",
+      "pin_to_pin": "warning",
       "power_pin_not_driven": "error",
       "same_local_global_label": "warning",
       "similar_label_and_power": "warning",
@@ -488,7 +488,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "lightbox.kicad_pro",
+    "filename": "controller.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -535,7 +535,7 @@
     "annotate_start_num": 0,
     "annotation": {
       "method": 0,
-      "sort_order": 1
+      "sort_order": 0
     },
     "bom_export_filename": "${PROJECTNAME}.csv",
     "bom_fmt_presets": [],
@@ -656,42 +656,18 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "lightbox.kicad_sch",
-        "name": "Root",
-        "uuid": "cc3f41af-fab2-4e21-b70d-65af2cb20a50"
+        "filename": "controller.kicad_sch",
+        "name": "controller",
+        "uuid": "86b1808f-3119-4273-9f65-e203b55b63ad"
       }
     ],
-    "used_designators": "U1-2,GND\\-1,5V1,H1-3,GND1,5V+1,#PWR1-90,D1-63",
+    "used_designators": "J1,D+1,LED_GPIO1,P1,#FLG1-3,D\\-1,Q1,U1-3,SW1-4,C1-4,#PWR1-23,TP1-2,R1-3",
     "variants": []
   },
   "sheets": [
     [
-      "cc3f41af-fab2-4e21-b70d-65af2cb20a50",
-      "Root"
-    ],
-    [
-      "5d91b480-f595-4fd0-bfdc-df9e51f4ea69",
-      "led-row"
-    ],
-    [
-      "854e1345-6176-4e2e-8fd0-17460fae8105",
-      "led-row1"
-    ],
-    [
-      "03159ec5-c414-477e-a247-2e37cfbef63f",
-      "led-row2"
-    ],
-    [
-      "80ccc138-7428-4420-808f-a5c9fb7e23c0",
-      "led-row3"
-    ],
-    [
-      "63a0a766-8c39-47ed-b580-aac372424a93",
-      "led-row4"
-    ],
-    [
-      "ac306294-ff03-453c-ba31-6408d5f9e427",
-      "led-row5"
+      "86b1808f-3119-4273-9f65-e203b55b63ad",
+      "controller"
     ]
   ],
   "text_variables": {},
