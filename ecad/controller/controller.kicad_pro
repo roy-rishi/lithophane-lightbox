@@ -524,7 +524,7 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "out/",
       "specctra_dsn": "",
       "step": "",
       "vrml": ""
@@ -611,12 +611,30 @@
           "label": "Datasheet",
           "name": "Datasheet",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Description",
+          "name": "Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "KiLib_Generator",
+          "name": "KiLib_Generator",
+          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": true,
-      "name": "Default Editing",
+      "name": "",
       "sort_asc": true,
       "sort_field": "Reference"
     },
@@ -657,17 +675,17 @@
     "top_level_sheets": [
       {
         "filename": "controller.kicad_sch",
-        "name": "controller",
-        "uuid": "86b1808f-3119-4273-9f65-e203b55b63ad"
+        "name": "Root",
+        "uuid": "a0a7a42a-311e-44b4-a47d-c10df353c043"
       }
     ],
-    "used_designators": "J1,D+1,LED_GPIO1,P1,#FLG1-3,D\\-1,Q1,U1-3,SW1-4,C1-4,#PWR1-23,TP1-2,R1-3",
+    "used_designators": "LED_TP1,J1,PRGM1,U1-3,C2-5,SW1-4,H1-2,R1,PWR1-2,LED_GPIO1,#FLG4-6,#PWR1-10,#PWR14-25,3V3,IO4-8,IO15-18,IO38-42,LEDS1",
     "variants": []
   },
   "sheets": [
     [
-      "86b1808f-3119-4273-9f65-e203b55b63ad",
-      "controller"
+      "a0a7a42a-311e-44b4-a47d-c10df353c043",
+      "Root"
     ]
   ],
   "text_variables": {},

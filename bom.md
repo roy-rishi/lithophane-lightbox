@@ -7,3 +7,4 @@
 - AMS1117-3.3 LDO: C6186
 - Level Converter: C7843
 - 1000uF Capacitor: C72470
+- SMD button: C720477
