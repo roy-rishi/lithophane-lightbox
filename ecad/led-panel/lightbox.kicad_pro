@@ -661,7 +661,7 @@
         "uuid": "cc3f41af-fab2-4e21-b70d-65af2cb20a50"
       }
     ],
-    "used_designators": "PWR1,PRGM1,P1,LED_GPIO1-2,#FLG1-6,D+1,J1-3,D\\-1,Q1-2,C1-5,SW1-4,U1-3,GND\\-1,5V1-3,H1-3,R1-3,GND1,D1-63,#PWR1-90,5V+1",
+    "used_designators": "PWR1,PRGM1,P1,LED_GPIO1-2,#FLG1-6,D+1,J1-3,D\\-1,Q1-2,C1-5,SW1-4,U1-3,GND\\-1,IO5-12,IO14-22,IO40-44,5V1-3,H1-3,R1-3,GND1,D1-63,#PWR1-90,5V+1",
     "variants": []
   },
   "sheets": [
