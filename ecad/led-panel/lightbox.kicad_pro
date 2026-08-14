@@ -526,7 +526,7 @@
       "netlist": "",
       "plot": "out/",
       "specctra_dsn": "",
-      "step": "",
+      "step": "lightbox.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""

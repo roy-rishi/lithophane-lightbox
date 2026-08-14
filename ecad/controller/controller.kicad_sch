@@ -4809,7 +4809,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_XH_B3B-XH-AM_1x03_P2.50mm_Vertical"
+		(property "Footprint" "Button_Switch_SMD:SW_Push_1P1T_NO_E-Switch_TL3301NxxxxxG"
 			(at 237.49 137.16 0)
 			(hide yes)
 			(show_name no)
@@ -8696,7 +8696,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "659e9087-3b63-4c38-a32d-608cda554ad4")
+			(uuid "659e9087-3b63-4c38-a32d-608cda554ad5")
 		)
 		(instances
 			(project "controller"
@@ -8775,7 +8775,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "e5ef2fff-4041-41bf-b387-66916bedf2e3")
+			(uuid "e5ef2fff-4041-41bf-b387-66916bedf2e4")
 		)
 		(instances
 			(project "controller"
@@ -9164,7 +9164,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "2d19174e-228a-4596-9af7-75d5d2833248")
+			(uuid "2d19174e-228a-4596-9af7-75d5d2833249")
 		)
 		(instances
 			(project "controller"
