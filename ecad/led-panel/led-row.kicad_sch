@@ -835,23 +835,23 @@
 	)
 	(hierarchical_label "5V"
 		(shape bidirectional)
-		(at 25.4 31.75 0)
+		(at 25.4 31.75 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "4a8ecc0c-073e-4ff0-8d0e-822957803db3")
 	)
 	(hierarchical_label "DIN"
 		(shape input)
-		(at 25.4 44.45 0)
+		(at 25.4 44.45 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "879cde29-1132-4db7-887d-14e57524c690")
 	)
@@ -868,12 +868,12 @@
 	)
 	(hierarchical_label "GND"
 		(shape bidirectional)
-		(at 25.4 57.15 0)
+		(at 25.4 57.15 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
 		(uuid "ad42dcca-3d0a-423e-b8de-64f1bf07a747")
 	)

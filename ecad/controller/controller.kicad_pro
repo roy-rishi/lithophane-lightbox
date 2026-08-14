@@ -526,7 +526,7 @@
       "netlist": "",
       "plot": "out/",
       "specctra_dsn": "",
-      "step": "",
+      "step": "controller.step",
       "vrml": ""
     },
     "page_layout_descr_file": ""
@@ -679,7 +679,7 @@
         "uuid": "a0a7a42a-311e-44b4-a47d-c10df353c043"
       }
     ],
-    "used_designators": "LED_TP1,J1,PRGM1,U1-3,C2-5,SW1-4,H1-2,R1,PWR1-2,LED_GPIO1,#FLG4-6,#PWR1-10,#PWR14-25,3V3,IO4-8,IO15-18,IO38-42,LEDS1",
+    "used_designators": "LED_TP1,J1,PRGM1,U1-3,C2-5,SW1-4,H1-2,R1-3,PWR1-2,LED_GPIO1,#FLG1-6,#PWR1-25,3V3,IO4-8,IO15-18,IO38-42,LEDS1",
     "variants": []
   },
   "sheets": [

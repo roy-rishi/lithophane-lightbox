@@ -1088,7 +1088,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad"
+		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4_Pad"
 			(at 113.03 69.85 0)
 			(hide yes)
 			(show_name no)
@@ -1403,7 +1403,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad"
+		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4_Pad"
 			(at 133.35 69.85 0)
 			(hide yes)
 			(show_name no)
@@ -1714,7 +1714,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad"
+		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4_Pad"
 			(at 92.71 69.85 0)
 			(hide yes)
 			(show_name no)
@@ -1868,7 +1868,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad"
+		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4_Pad"
 			(at 153.67 69.85 0)
 			(hide yes)
 			(show_name no)
