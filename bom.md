@@ -8,3 +8,5 @@
 - Level Converter: C7843
 - 1000uF Capacitor: C72470
 - SMD button: C720477
+- TVS Diode: C83324
+- TVS Array: C7519
