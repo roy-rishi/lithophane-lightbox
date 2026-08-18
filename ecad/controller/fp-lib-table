@@ -1,4 +1,5 @@
 (fp_lib_table
 	(version 7)
 	(lib (name "usb-library") (type "KiCad") (uri "/Users/rishiroy/Programming/lithopane-lightbox/ecad/usb-library.pretty") (options "") (descr ""))
+	(lib (name "usb-c") (type "KiCad") (uri "/Users/rishiroy/Programming/lithopane-lightbox/ecad/usb-c.pretty") (options "") (descr ""))
 )
