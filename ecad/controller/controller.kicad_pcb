@@ -8638,7 +8638,7 @@
 			(uuid "9e7d033e-f9a4-4cb2-ae2b-fb24b9f18600")
 		)
 		(embedded_fonts no)
-		(model "/Users/rishiroy/Programming/lithopane-lightbox/ecad/usb-c.pretty/usb-c-vertical.step"
+		(model "../usb-c.pretty/usb-c-vertical.step"
 			(offset
 				(xyz 0 0.88 0)
 			)
