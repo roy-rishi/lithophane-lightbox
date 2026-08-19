@@ -569,7 +569,7 @@
       "method": 0,
       "sort_order": 0
     },
-    "bom_export_filename": "${PROJECTNAME}.csv",
+    "bom_export_filename": "${PROJECTNAME}-bom.csv",
     "bom_fmt_presets": [],
     "bom_fmt_settings": {
       "field_delimiter": ",",
@@ -769,6 +769,12 @@
           "label": "KiLib_Generator",
           "name": "KiLib_Generator",
           "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Pins",
+          "name": "Sim.Pins",
+          "show": false
         }
       ],
       "filter_string": "",
@@ -819,7 +825,7 @@
         "uuid": "a0a7a42a-311e-44b4-a47d-c10df353c043"
       }
     ],
-    "used_designators": "LED_TP1,J1-2,PRGM1,IO4-8,IO15-20,IO38-42,LEDS1-2,C2-9,SW1-4,U1-4,H1-3,R1-5,PWR1-2,#FLG1-6,3V3,D1,#PWR1-34,LED_GPIO1",
+    "used_designators": "LED_TP1,J1-2,PRGM1,IO4-8,IO15-20,IO38-42,LEDS1-2,C2-9,SW1-4,U1-4,H1-4,R1-6,PWR1-2,#FLG1-6,3V3,D1-2,#PWR1-34,LED_GPIO1",
     "variants": []
   },
   "sheets": [

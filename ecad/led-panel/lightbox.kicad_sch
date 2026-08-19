@@ -369,9 +369,13 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Mechanical:MountingHole"
+		(symbol "Mechanical:MountingHole_Pad"
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 1.016)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom no)
@@ -379,7 +383,7 @@
 			(in_pos_files yes)
 			(duplicate_pin_numbers_are_jumpers no)
 			(property "Reference" "H"
-				(at 0 5.08 0)
+				(at 0 6.35 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -388,8 +392,8 @@
 					)
 				)
 			)
-			(property "Value" "MountingHole"
-				(at 0 3.175 0)
+			(property "Value" "MountingHole_Pad"
+				(at 0 4.445 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(effects
@@ -420,7 +424,7 @@
 					)
 				)
 			)
-			(property "Description" "Mounting Hole without connection"
+			(property "Description" "Mounting Hole with connection"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -442,7 +446,7 @@
 					)
 				)
 			)
-			(property "ki_fp_filters" "MountingHole*"
+			(property "ki_fp_filters" "MountingHole*Pad*"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -453,9 +457,9 @@
 					)
 				)
 			)
-			(symbol "MountingHole_0_1"
+			(symbol "MountingHole_Pad_0_1"
 				(circle
-					(center 0 0)
+					(center 0 1.27)
 					(radius 1.27)
 					(stroke
 						(width 1.27)
@@ -463,6 +467,26 @@
 					)
 					(fill
 						(type none)
+					)
+				)
+			)
+			(symbol "MountingHole_Pad_1_1"
+				(pin input line
+					(at 0 -2.54 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
 				)
 			)
@@ -839,6 +863,18 @@
 		)
 	)
 	(junction
+		(at 101.6 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "07a44e74-395f-4c86-b405-459ee875c5b3")
+	)
+	(junction
+		(at 114.3 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3f878d96-bfa7-4894-8516-94160d91cc06")
+	)
+	(junction
 		(at 168.91 102.87)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -850,6 +886,42 @@
 		(color 0 0 0 0)
 		(uuid "d4ffecbb-27ee-4d07-bebb-42de0a49ba3b")
 	)
+	(junction
+		(at 127 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e20dff80-3f15-47c5-aab5-0cafcb070124")
+	)
+	(wire
+		(pts
+			(xy 76.2 59.69) (xy 101.6 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2aab62eb-3f20-459d-b233-095673936ae1")
+	)
+	(wire
+		(pts
+			(xy 114.3 59.69) (xy 127 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "84277264-42e1-43a0-a33e-981180799fa4")
+	)
+	(wire
+		(pts
+			(xy 101.6 59.69) (xy 114.3 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8df66447-24e2-4f02-856b-e42ea7051799")
+	)
 	(wire
 		(pts
 			(xy 168.91 102.87) (xy 168.91 101.6)
@@ -859,6 +931,16 @@
 			(type default)
 		)
 		(uuid "96fdeded-fde0-413d-9df1-4648b375e833")
+	)
+	(wire
+		(pts
+			(xy 127 59.69) (xy 152.4 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b669303a-338d-4691-b61e-6883e418fd60")
 	)
 	(wire
 		(pts
@@ -1077,8 +1159,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 113.03 69.85 0)
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 101.6 62.23 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1089,29 +1171,29 @@
 		(fields_autoplaced yes)
 		(uuid "3a784763-7c95-4e4b-a324-928346dcaba9")
 		(property "Reference" "H2"
-			(at 115.57 68.5799 0)
+			(at 104.14 62.2299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 115.57 71.1199 0)
+			(at 104.14 64.7699 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4"
-			(at 113.03 69.85 0)
+		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4_ISO7380_Pad_TopOnly"
+			(at 101.6 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1122,7 +1204,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 113.03 69.85 0)
+			(at 101.6 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1132,8 +1214,8 @@
 				)
 			)
 		)
-		(property "Description" "Mounting Hole without connection"
-			(at 113.03 69.85 0)
+		(property "Description" "Mounting Hole with connection"
+			(at 101.6 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1144,7 +1226,7 @@
 			)
 		)
 		(property "LCSC#" ""
-			(at 113.03 69.85 0)
+			(at 101.6 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1155,7 +1237,7 @@
 			)
 		)
 		(property "MPN" ""
-			(at 113.03 69.85 0)
+			(at 101.6 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1164,6 +1246,9 @@
 					(size 1.27 1.27)
 				)
 			)
+		)
+		(pin "1"
+			(uuid "ec9fbf96-4c41-4bd4-b2ba-836632b75f54")
 		)
 		(instances
 			(project "lightbox"
@@ -1436,8 +1521,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 133.35 69.85 0)
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 127 62.23 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1448,29 +1533,29 @@
 		(fields_autoplaced yes)
 		(uuid "682c1e65-59ac-452e-bfe7-1bdd4022b5e7")
 		(property "Reference" "H3"
-			(at 135.89 68.5799 0)
+			(at 129.54 62.2299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 135.89 71.1199 0)
+			(at 129.54 64.7699 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4"
-			(at 133.35 69.85 0)
+		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4_ISO7380_Pad_TopOnly"
+			(at 127 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1481,7 +1566,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 133.35 69.85 0)
+			(at 127 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1491,8 +1576,8 @@
 				)
 			)
 		)
-		(property "Description" "Mounting Hole without connection"
-			(at 133.35 69.85 0)
+		(property "Description" "Mounting Hole with connection"
+			(at 127 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1503,7 +1588,7 @@
 			)
 		)
 		(property "LCSC#" ""
-			(at 133.35 69.85 0)
+			(at 127 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1514,7 +1599,7 @@
 			)
 		)
 		(property "MPN" ""
-			(at 133.35 69.85 0)
+			(at 127 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1523,6 +1608,9 @@
 					(size 1.27 1.27)
 				)
 			)
+		)
+		(pin "1"
+			(uuid "4ae4d858-61ec-4a34-b1eb-e26bdf974e4d")
 		)
 		(instances
 			(project "lightbox"
@@ -1769,8 +1857,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 92.71 69.85 0)
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 76.2 62.23 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1781,29 +1869,29 @@
 		(fields_autoplaced yes)
 		(uuid "a68d44c1-3376-410e-bbf4-b2d19870ceb4")
 		(property "Reference" "H1"
-			(at 95.25 68.5799 0)
+			(at 78.74 62.2299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 95.25 71.1199 0)
+			(at 78.74 64.7699 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4"
-			(at 92.71 69.85 0)
+		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4_ISO7380_Pad_TopOnly"
+			(at 76.2 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1814,7 +1902,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 92.71 69.85 0)
+			(at 76.2 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1824,8 +1912,8 @@
 				)
 			)
 		)
-		(property "Description" "Mounting Hole without connection"
-			(at 92.71 69.85 0)
+		(property "Description" "Mounting Hole with connection"
+			(at 76.2 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1836,7 +1924,7 @@
 			)
 		)
 		(property "LCSC#" ""
-			(at 92.71 69.85 0)
+			(at 76.2 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1847,7 +1935,7 @@
 			)
 		)
 		(property "MPN" ""
-			(at 92.71 69.85 0)
+			(at 76.2 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1857,10 +1945,91 @@
 				)
 			)
 		)
+		(pin "1"
+			(uuid "a419cece-ea35-4cd1-b912-980156181864")
+		)
 		(instances
 			(project "lightbox"
 				(path "/cc3f41af-fab2-4e21-b70d-65af2cb20a50"
 					(reference "H1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 114.3 59.69 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d24ddb3f-72e4-475c-b902-b79c76da9ec6")
+		(property "Reference" "#PWR05"
+			(at 114.3 63.5 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 114.3 54.61 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 114.3 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 114.3 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 114.3 59.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "fd14a769-1a61-4ae6-859b-bf5c3b7faccc")
+		)
+		(instances
+			(project "lightbox"
+				(path "/cc3f41af-fab2-4e21-b70d-65af2cb20a50"
+					(reference "#PWR05")
 					(unit 1)
 				)
 			)
@@ -1945,8 +2114,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:MountingHole")
-		(at 153.67 69.85 0)
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 152.4 62.23 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1957,29 +2126,29 @@
 		(fields_autoplaced yes)
 		(uuid "e3ef825d-a5ca-4afb-9351-e38ac3a629c9")
 		(property "Reference" "H4"
-			(at 156.21 68.5799 0)
+			(at 154.94 62.2299 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 156.21 71.1199 0)
+			(at 154.94 64.7699 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
-		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4"
-			(at 153.67 69.85 0)
+		(property "Footprint" "MountingHole:MountingHole_4.3mm_M4_ISO7380_Pad_TopOnly"
+			(at 152.4 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1990,7 +2159,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 153.67 69.85 0)
+			(at 152.4 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2000,8 +2169,8 @@
 				)
 			)
 		)
-		(property "Description" "Mounting Hole without connection"
-			(at 153.67 69.85 0)
+		(property "Description" "Mounting Hole with connection"
+			(at 152.4 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2012,7 +2181,7 @@
 			)
 		)
 		(property "LCSC#" ""
-			(at 153.67 69.85 0)
+			(at 152.4 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2023,7 +2192,7 @@
 			)
 		)
 		(property "MPN" ""
-			(at 153.67 69.85 0)
+			(at 152.4 62.23 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2032,6 +2201,9 @@
 					(size 1.27 1.27)
 				)
 			)
+		)
+		(pin "1"
+			(uuid "ab923e35-d0ac-47c1-b176-ee983403232c")
 		)
 		(instances
 			(project "lightbox"
