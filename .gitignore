@@ -3,7 +3,6 @@
 
 # KiCad
 *-unsaved-export-*.kicad_prl
-*.step
 .history
 ~*.lck
 out/
