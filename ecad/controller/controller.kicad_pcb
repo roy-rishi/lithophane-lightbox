@@ -219,12 +219,6 @@
 		(path "/ccb16795-ec40-4ccd-87b3-11435d3f1505")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins)
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -363,12 +357,6 @@
 		(path "/b246d67d-5cde-46df-888f-faca579ec5dd")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -508,12 +496,6 @@
 		(path "/052c9f03-a6f2-41cc-b49c-5ad01e577147")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins)
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -652,12 +634,6 @@
 		(path "/37b42686-2ae7-41b3-861f-f801ecda6d15")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -796,12 +772,6 @@
 		(path "/6647f5c2-6b4e-411b-a7ba-02227c027f76")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -973,12 +943,6 @@
 		(path "/405b6956-b2e7-4944-b49e-c7158b7fa908")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -1109,12 +1073,6 @@
 		(path "/56ffc293-e4e9-437b-a212-d376a8f202a5")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "3" "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1420,12 +1378,6 @@
 		(path "/3147cf12-e465-41c3-aa23-7160693e1098")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "3" "5" "1" "2" "6" "4")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -1729,12 +1681,6 @@
 		(path "/7ff2960b-4385-4951-852a-79ee769baef5")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -1874,12 +1820,6 @@
 		(path "/733b6548-296d-43c8-8fe5-2ca920038f7a")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins)
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -2025,12 +1965,6 @@
 		(path "/f9a84525-5b64-4911-a46c-9cddcc35fab9")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -2209,12 +2143,6 @@
 		(path "/e70356b8-34b7-4c2a-978f-bac74d0d2612")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -2386,12 +2314,6 @@
 		(path "/b2a20ffe-626b-4ff7-8859-ac07b2241356")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -2523,12 +2445,6 @@
 		(path "/358c7b45-1144-47fb-b1ea-3f14076e17e1")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -2660,12 +2576,6 @@
 		(path "/0b95c0f0-ad34-4d3d-b088-10b40549eb5c")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -2804,12 +2714,6 @@
 		(path "/b9a2d90b-e4dd-4b40-8bc6-737fa24e9c28")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -2981,12 +2885,6 @@
 		(path "/2338743c-fa56-4426-997e-3355660f4019")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -3125,12 +3023,6 @@
 		(path "/8da7c4b5-14ce-40ad-b6c0-6d9896b977f9")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -3309,12 +3201,6 @@
 		(path "/97c71ceb-282b-4bcd-9862-8927173e3466")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -3486,12 +3372,6 @@
 		(path "/9e869fcf-84d0-4785-86e7-aacab6d728bd")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -3623,12 +3503,6 @@
 		(path "/3b373b38-a385-4bce-a3dd-c2a0ee537d24")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -3767,12 +3641,6 @@
 		(path "/29e9b0c0-47ba-4055-af6a-cec3c5749599")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -3964,12 +3832,6 @@
 		(path "/baeeca23-4fee-48bb-976d-092278fe9944")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -4199,12 +4061,6 @@
 		(path "/4916288c-f2a1-43f3-a86a-6b10844656be")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -4375,12 +4231,6 @@
 		(path "/3dabf29c-726e-45d7-88d2-5d7e3efbeb48")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "3" "5" "2" "6" "4")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -4686,15 +4536,6 @@
 		(path "/9bcd4405-16d5-447c-8455-7b088ee63e47")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "3" "27" "39" "38" "15" "4" "5" "6" "7" "12" "17" "18" "19" "20"
-					"21" "22" "8" "9" "2" "1" "40" "41" "37" "36" "10" "11" "13" "14" "23"
-					"28" "29" "30" "31" "32" "33" "34" "35" "26" "16" "24" "25"
-				)
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -5396,12 +5237,6 @@
 		(path "/a634e36d-fab1-49b9-91ca-7697f36c4214")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2" "3")
-			)
-		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -5720,12 +5555,6 @@
 		(path "/5bb1cad8-20db-4121-b0f2-b50f1e9c5e24")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -5857,12 +5686,6 @@
 		(path "/0cb1db6e-84d0-4ec8-b104-fad5a92c2b53")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -6002,12 +5825,6 @@
 		(path "/88f5f20a-dabf-42e3-887f-9babe0eeb97f")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins)
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -6153,12 +5970,6 @@
 		(path "/a2f91b1a-f1df-474b-be7e-f7dbb8f7fc5f")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -6337,12 +6148,6 @@
 		(path "/0b7ef123-2ec2-4584-9fcf-f9e674f372b8")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2" "3")
-			)
-		)
 		(attr through_hole)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -6608,12 +6413,6 @@
 		(path "/2b1120cc-c0bf-4bbe-b681-def9369afb5f")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -6750,12 +6549,6 @@
 		(path "/cc89189b-461b-4b07-9c92-93c3ad6bf323")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -7053,12 +6846,6 @@
 		(path "/d4eea6b4-2a70-4741-bab5-c169af5331eb")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -7245,12 +7032,6 @@
 		(path "/18b33b92-9998-495c-a51b-9cf11fbc4ec1")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -7429,12 +7210,6 @@
 		(path "/6d918ba5-23b3-4a45-b356-94c43a2d0b3a")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -7585,12 +7360,6 @@
 		(path "/1bafc98a-136b-43c5-9736-170c18269e05")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -7880,12 +7649,6 @@
 		(path "/54b9b17a-a314-4b9c-95af-aa81055a3ee5")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1")
-			)
-		)
 		(attr exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -8023,12 +7786,6 @@
 		(path "/ad853a24-48ef-4315-a815-e713ae2d6675")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -8345,12 +8102,6 @@
 		(path "/d3f0038d-e0d0-4b08-9b5a-a37c1e54e5e2")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -8528,12 +8279,6 @@
 		(path "/ecc5589e-5d25-48cf-96ae-07856616eb5d")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "SH" "A12" "B12" "A9" "B9" "A5" "B5")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_text user "${REFERENCE}"
@@ -8638,7 +8383,14 @@
 			(uuid "9e7d033e-f9a4-4cb2-ae2b-fb24b9f18600")
 		)
 		(embedded_fonts no)
-		(model "../usb-c.pretty/usb-c-vertical.step"
+		(embedded_files
+			(file
+				(name "usb-c-vertical.step")
+				(type model)
+				(checksum "74438A4F609564597EB74A5368F97A84")
+			)
+		)
+		(model "kicad-embed://usb-c-vertical.step"
 			(offset
 				(xyz 0 0.88 0)
 			)
@@ -8740,12 +8492,6 @@
 		(path "/5fa70a3f-e690-4fc1-952a-7c5e571562b5")
 		(sheetname "/")
 		(sheetfile "controller.kicad_sch")
-		(units
-			(unit
-				(name "A")
-				(pins "1" "2")
-			)
-		)
 		(attr smd)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
@@ -11596,4 +11342,172 @@
 		)
 	)
 	(embedded_fonts no)
+	(embedded_files
+		(file
+			(name "usb-c-vertical.step")
+			(type model)
+			(data |KLUv/WC43a0cATrt8UMv4GrGptiQRFcZWaOiKHdNHmX/yrFHnOlijtm5Q0lZ2b0zSfbS3pqmRGKM
+				sTxhMAHGBJYDHQSU0xq7aUNGGiPjj2jmjGiQjoyKTqY7NDyRKe95ZnWD9Jm5JLKZX1m+7C6H2rZt
+				29au/LnfiWjqMnNwhiZpzucbt5SXrUGbqTz+bq8XUdZ7d3OM6G5Ortmx0jrLRKy3qyeHbtVZZiGS
+				4BGKfEHBElkeJhAKIBwmDSokHCyPhEiCfp5Gn83jCsqERAEsFKBAGMBisgCFAweLBhUWCTD8isZ3
+				GrrS9LAz504addBy5sxmzDxTM1PIrdJJllgjHCtm4eFd0ZmVvVyuKap6iz7V59F4+2xUJ/qzvpVe
+				7d+5m56ic844NjUJedqT5MKacHyXZIfUO0IzKyI7XZleRK3S1FA+a8fW79Z09X5tl0w96jKNnBBC
+				MUFxmCzAMCU/ydhJujm0fKF/g2RDKut9NEPOJMPa6MbQ8gr/a5ENqXzq0TRZmyipJWze1FlaobG/
+				tCFV9XMdrC2JsGO9OVpa4X+2tUqFfb1zNSbZxRL1xm0tq/C/mdqOynrKGasx6djBuSG0tEL/yDY3
+				VNZ3qh6bJMS+5qY0lYCIYDBs/X2Of0NvDfYenM9gYqItz5X2PNf5pp1IhSUcdzDzkPCuzn5F955p
+				jrw0ktazoZqlDccOy3pVPau7TEX5VpeJ4CMcKCAcGKa9u7u7u0wzMzMjw5olXp3VXUbVmsoX/vb6
+				f586Tzyr22TX4yQkuojVTR1KPOu0bWvT4lmOjY2ZYc5YpuVVZqZl4mEZIiIe8e7uzgm5uzMjM7OR
+				tWZVk5CqqqyqQoS8Xq/XIeT1er0MIa/btm3X48IkIjrWTWTsUOK1LbWdJk7xrD7oqampqczMxMzM
+				y0MSIpOIiIhIWBy0Szyrq/vofr25RCc4q9sOiZC9wcREhMVkwcOEgW5605va1KY2talNbeok7I1Z
+				Fv5sVP2kk7A3ZVn4s1H1g07C3tyy8GczHcWE4mAiby6idjzNDiLlWRl/tiPshywLr24i0RDRgMEW
+				yhLJKeRBwsFEAhYThwYFDGVfHQBBIwGFBYiIiQqLh4gJBQwY/iuDCQUiggFKBYPnFglYPEwcJBoW
+				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|
+			)
+			(checksum "74438A4F609564597EB74A5368F97A84")
+		)
+	)
 )
