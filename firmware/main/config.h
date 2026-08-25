@@ -5,7 +5,7 @@
 // Pin definitions
 #define STATUS_LED_PIN 2
 // Logging
-#define TAG "app"
+#define TAG "APP"
 // Bluetooth
 #define GAP_NAME "Lightbox"
 

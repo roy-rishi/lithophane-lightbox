@@ -5,13 +5,10 @@
 
 #include "config.h"
 #include "esp_log.h"
-#include "host/ble_hs.h"
-#include "host/ble_uuid.h"
-#include "host/util/util.h"
 #include "led.h"
-#include "nimble/ble.h"
 #include "nimble/nimble_port.h"
-#include "nimble/nimble_port_freertos.h"
+#include "services/gap/ble_svc_gap.h"
+#include "services/gatt/ble_svc_gatt.h"
 
 void app_main(void) {
     // initialize status LED
