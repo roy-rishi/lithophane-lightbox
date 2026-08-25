@@ -1,3 +1,4 @@
+#!/bin/bash
 # Remotely flash an ESP32 SoC
 # App-only. Does not flash bootloader or partition table
 
