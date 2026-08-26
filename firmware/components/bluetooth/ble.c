@@ -16,6 +16,8 @@
 #define TAG "BLE"
 #define GAP_NAME "Lightbox"
 
+static QueueHandle_t msg_queue;
+
 extern void ble_store_config_init(void);
 
 static void nimble_host_task(void* param);
@@ -291,9 +293,15 @@ static int led_chr_access(uint16_t conn_handle, uint16_t attr_handle, struct ble
                 if (ctxt->om->om_len == 1) {
                     // turn the LED on/off according to the operation bit
                     if (ctxt->om->om_data[0]) {
-                        ESP_LOGI(TAG, "LED turned on!");
+                        ESP_LOGI(TAG, "LED ON requested");
+                        // enqueue ON message
+                        uint8_t item = 1;
+                        xQueueSend(msg_queue, &item, 0);
                     } else {
-                        ESP_LOGI(TAG, "LED turned off!");
+                        ESP_LOGI(TAG, "LED OFF requested");
+                        // enqueue OFF message
+                        uint8_t item = 0;
+                        xQueueSend(msg_queue, &item, 0);
                     }
                 } else {
                     goto error;
@@ -337,7 +345,7 @@ static const struct ble_gatt_svc_def gatt_svr_svcs[] = {
     },
 };
 
-void ble_init() {
+void ble_init(QueueHandle_t itc_queue) {
     // initialize NimBLE stack
     ESP_LOGI(TAG, "Initializing NimBLE...");
     ESP_ERROR_CHECK(nimble_port_init());
@@ -362,6 +370,8 @@ void ble_init() {
     // store host configuration
     ble_store_config_init();
 
+    // save inter-task message queue handle
+    msg_queue = itc_queue;
 }
 
 void ble_start() {

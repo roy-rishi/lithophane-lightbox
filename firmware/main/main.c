@@ -23,14 +23,29 @@ void app_main(void) {
         ESP_LOGW(TAG, "Erased flash");
     }
 
+    // create inter-task message queue
+    QueueHandle_t msg_queue = xQueueCreate(5, sizeof(uint8_t));
+    if (msg_queue == NULL) {
+        ESP_LOGE(TAG, "Failed to create queue");
+        return;
+    }
+
     // initialize and start BLE
-    ble_init();
+    ble_init(msg_queue);
     ble_start();
 
+    uint8_t req;
     while (1) {
-        led_on();
-        vTaskDelay(500 / portTICK_PERIOD_MS);
-        led_off();
-        vTaskDelay(500 / portTICK_PERIOD_MS);
+        // wait for message from BLE task
+        xQueueReceive(msg_queue, &req, portMAX_DELAY);
+
+        // set LED according to request
+        if (req == 1) {
+            led_on();
+            ESP_LOGI(TAG, "LED ON.");
+        } else {
+            led_off();
+            ESP_LOGI(TAG, "LED OFF.");
+        }
     }
 }
