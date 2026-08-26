@@ -12,6 +12,7 @@
 #include "services/gap/ble_svc_gap.h"
 #include "services/gatt/ble_svc_gatt.h"
 #include "host/util/util.h"
+#include "ble.h"
 
 extern void ble_store_config_init(void);
 
