@@ -6,6 +6,7 @@
 #include "ble.h"
 #include "esp_log.h"
 #include "led.h"
+#include "led_panel.h"
 
 #define TAG "MAIN"
 
@@ -36,7 +37,11 @@ void app_main(void) {
     ble_init();
     ble_start();
 
+    // start status LED task
     status_led_start();
+
+    // initialize addressable LED drivers
+    led_panel_init();
 
     while (1) {
         vTaskDelay(1000);
