@@ -1,6 +1,8 @@
 #ifndef LED_PANEL_
 #define LED_PANEL_
 
-void led_panel_init();
+#include "led_strip_types.h"
+
+void led_panel_init(led_strip_handle_t *panel);
 
 #endif  // LED_PANEL_

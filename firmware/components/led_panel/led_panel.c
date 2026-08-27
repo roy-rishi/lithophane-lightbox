@@ -4,17 +4,10 @@
 #include "led_strip.h"
 #include "led_strip_rmt.h"
 #include "led_strip_types.h"
+#include "led_panel_utils.h"
+#include "led_panel_config.h"
 
-#define PANEL_PIN 13
-#define NUM_LEDS 5
-
-// macros for setting pixel values with gamma correction
-#define set_pixel(i, r, g, b) led_strip_set_pixel(panel, i, gamma_table[r], gamma_table[g], gamma_table[b])
-#define set_pixel_hsv(i, h, s, v) led_strip_set_pixel_hsv(panel, i, h, s, gamma_table[v]);
-
-static led_strip_handle_t panel = NULL;
-
-void led_panel_init() {
+void led_panel_init(led_strip_handle_t *panel) {
     /// LED config
     led_strip_config_t strip_config = {
         .strip_gpio_num = PANEL_PIN,
@@ -37,25 +30,5 @@ void led_panel_init() {
     };
 
     // initialize
-    ESP_ERROR_CHECK(led_strip_new_rmt_device(&strip_config, &rmt_config, &panel));
-
-    // TODO: remove gamma test
-    led_strip_clear(panel);
-    for (int i = 0; i <= 255; i++) {
-        led_strip_set_pixel(panel, 0, i, i, i);
-        set_pixel(2, i, i, i);
-        set_pixel_hsv(4, 0, 0, i);
-
-        led_strip_refresh(panel);
-        vTaskDelay(20 / portTICK_PERIOD_MS);
-    }
-    for (int i = 255; i >= 0; i--) {
-        led_strip_set_pixel(panel, 0, i, i, i);
-        set_pixel(2, i, i, i);
-        set_pixel_hsv(4, 0, 0, i);
-
-        led_strip_refresh(panel);
-        vTaskDelay(20 / portTICK_PERIOD_MS);
-    }
-    led_strip_clear(panel);
+    ESP_ERROR_CHECK(led_strip_new_rmt_device(&strip_config, &rmt_config, panel));
 }

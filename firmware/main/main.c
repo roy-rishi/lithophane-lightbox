@@ -7,10 +7,14 @@
 #include "esp_log.h"
 #include "led.h"
 #include "led_panel.h"
+#include "led_strip.h"
+#include "led_strip_types.h"
+#include "led_panel_utils.h"
 
 #define TAG "MAIN"
 
 QueueHandle_t led_queue;
+led_strip_handle_t panel;
 
 void app_main(void) {
     // initialize status LED
@@ -41,9 +45,28 @@ void app_main(void) {
     status_led_start();
 
     // initialize addressable LED drivers
-    led_panel_init();
+    led_panel_init(&panel);
 
     while (1) {
-        vTaskDelay(1000);
+        // TODO: remove gamma test
+        led_strip_clear(panel);
+        for (int i = 0; i <= 255; i++) {
+            led_strip_set_pixel(panel, 0, i, i, i);
+            set_pixel(panel, 2, i, i, i);
+            set_pixel_hsv(panel, 4, 0, 0, i);
+
+            led_strip_refresh(panel);
+            vTaskDelay(20 / portTICK_PERIOD_MS);
+        }
+        for (int i = 255; i >= 0; i--) {
+            led_strip_set_pixel(panel, 0, i, i, i);
+            set_pixel(panel, 2, i, i, i);
+            set_pixel_hsv(panel, 4, 0, 0, i);
+
+            led_strip_refresh(panel);
+            vTaskDelay(20 / portTICK_PERIOD_MS);
+        }
+        led_strip_clear(panel);
+        vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
 }
