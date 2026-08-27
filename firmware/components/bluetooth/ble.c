@@ -17,7 +17,8 @@
 #define TAG "BLE"
 #define GAP_NAME "Lightbox"
 
-extern QueueHandle_t led_queue;
+extern QueueHandle_t ble_status_q;
+extern QueueHandle_t cmd_q;
 
 extern void ble_store_config_init(void);
 
@@ -91,7 +92,7 @@ static void start_advertising(void) {
     rc = ble_gap_adv_set_fields(&adv_fields);
     if (rc != 0) {
         ESP_LOGE(TAG, "failed to set advertising data, error code: %d", rc);
-        xQueueSend(led_queue, &code, 0);  // update status
+        xQueueSend(ble_status_q, &code, 0);  // update status
         return;
     }
 
@@ -112,7 +113,7 @@ static void start_advertising(void) {
     rc = ble_gap_adv_rsp_set_fields(&rsp_fields);
     if (rc != 0) {
         ESP_LOGE(TAG, "failed to set scan response data, error code: %d", rc);
-        xQueueSend(led_queue, &code, 0);  // update status
+        xQueueSend(ble_status_q, &code, 0);  // update status
         return;
     }
 
@@ -129,14 +130,14 @@ static void start_advertising(void) {
                            gap_event_handler, NULL);
     if (rc != 0) {
         ESP_LOGE(TAG, "Failed to start advertising, error: %d", rc);
-        xQueueSend(led_queue, &code, 0);  // update status
+        xQueueSend(ble_status_q, &code, 0);  // update status
         return;
     }
     ESP_LOGI(TAG, "Advertising started");
 
     // update status
     code = ADVERTISING;
-    xQueueSend(led_queue, &code, 0);
+    xQueueSend(ble_status_q, &code, 0);
 }
 
 /*
@@ -158,18 +159,18 @@ static int gap_event_handler(struct ble_gap_event* event, void* arg) {
 
             if (event->connect.status != 0) {
                 // connection failed, restart advertising
-                xQueueSend(led_queue, &code, 0);  // error status until advertising restarts
+                xQueueSend(ble_status_q, &code, 0);  // error status until advertising restarts
                 start_advertising();
             }
             // connection success
             code = CONNECTED;
-            xQueueSend(led_queue, &code, 0);  // connected status
+            xQueueSend(ble_status_q, &code, 0);  // connected status
             return rc;
 
         // disconnect event
         case BLE_GAP_EVENT_DISCONNECT:
             ESP_LOGI(TAG, "Disconnected; reason=%d", event->disconnect.reason);
-            xQueueSend(led_queue, &code, 0);  // error status until advertising restarts
+            xQueueSend(ble_status_q, &code, 0);  // error status until advertising restarts
             start_advertising();              // start advertising
             return rc;
 
@@ -181,7 +182,7 @@ static int gap_event_handler(struct ble_gap_event* event, void* arg) {
         // advertising complete event
         case BLE_GAP_EVENT_ADV_COMPLETE:
             ESP_LOGI(TAG, "Advertising complete; reason=%d", event->adv_complete.reason);
-            xQueueSend(led_queue, &code, 0);  // error status until advertising restarts
+            xQueueSend(ble_status_q, &code, 0);  // error status until advertising restarts
             start_advertising();              // restart advertising
             return rc;
 
@@ -277,7 +278,7 @@ void adv_init(void) {
 static void on_stack_reset(int reason) {
     ESP_LOGI(TAG, "nimble stack reset, reset reason: %d", reason);
     Status code = ERROR;
-    xQueueSend(led_queue, &code, 0);  // update status
+    xQueueSend(ble_status_q, &code, 0);  // update status
 }
 
 static void on_stack_sync(void) {
@@ -307,13 +308,19 @@ static int led_chr_access(uint16_t conn_handle, uint16_t attr_handle, struct ble
             if (attr_handle == led_chr_val_handle) {
                 /* Verify access buffer length */
                 if (ctxt->om->om_len == 1) {
-                    // turn the LED on/off according to the operation bit
+                    // turn the panel ON/OFF according to the operation bit
                     if (ctxt->om->om_data[0]) {
                         ESP_LOGI(TAG, "ON requested");
-                        // TODO: enqueue request
+
+                        // put command in message queue
+                        Cmd data = CMD_ON;
+                        xQueueSend(cmd_q, &data, 0);
                     } else {
                         ESP_LOGI(TAG, "LED OFF requested");
-                        // TODO: enqueue request
+                        
+                        // put command in message queue
+                        Cmd data = CMD_OFF;
+                        xQueueSend(cmd_q, &data, 0);
                     }
                 } else {
                     goto error;

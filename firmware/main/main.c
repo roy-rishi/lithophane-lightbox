@@ -10,10 +10,14 @@
 #include "led_strip.h"
 #include "led_strip_types.h"
 #include "led_panel_utils.h"
+#include "status_codes.h"
 
 #define TAG "MAIN"
 
-QueueHandle_t led_queue;
+// message queues
+QueueHandle_t ble_status_q;
+QueueHandle_t cmd_q;
+// addressable LED driver handle
 led_strip_handle_t panel;
 
 void app_main(void) {
@@ -30,9 +34,10 @@ void app_main(void) {
         ESP_LOGW(TAG, "Erased flash");
     }
 
-    // create status LED task message queue
-    led_queue = xQueueCreate(5, sizeof(uint8_t));
-    if (led_queue == NULL) {
+    // create message queues
+    ble_status_q = xQueueCreate(5, sizeof(uint8_t));
+    cmd_q = xQueueCreate(5, sizeof(uint8_t));
+    if (ble_status_q == NULL || cmd_q == NULL) {
         ESP_LOGE(TAG, "Failed to create queue");
         return;
     }
@@ -44,29 +49,38 @@ void app_main(void) {
     // start status LED task
     status_led_start();
 
-    // initialize addressable LED drivers
+    // initialize addressable LED driver
     led_panel_init(&panel);
+    led_strip_clear(panel);
+    led_strip_refresh(panel);
 
+    Cmd req = {0};
     while (1) {
-        // TODO: remove gamma test
-        led_strip_clear(panel);
-        for (int i = 0; i <= 255; i++) {
-            led_strip_set_pixel(panel, 0, i, i, i);
-            set_pixel(panel, 2, i, i, i);
-            set_pixel_hsv(panel, 4, 0, 0, i);
+        // wait for command request
+        xQueueReceive(cmd_q, &req, portMAX_DELAY);
 
-            led_strip_refresh(panel);
-            vTaskDelay(20 / portTICK_PERIOD_MS);
-        }
-        for (int i = 255; i >= 0; i--) {
-            led_strip_set_pixel(panel, 0, i, i, i);
-            set_pixel(panel, 2, i, i, i);
-            set_pixel_hsv(panel, 4, 0, 0, i);
+        // handle command request
+        switch (req) {
+            // fade panel ON
+            case CMD_ON:
+                for (int i = 10; i < 256; i++) {
+                    fill_all(panel, i, i, i);
+                    led_strip_refresh(panel);
+                    // wait (1960 ms total fade time)
+                    vTaskDelay(8 / portTICK_PERIOD_MS);
+                }
+                break;
 
-            led_strip_refresh(panel);
-            vTaskDelay(20 / portTICK_PERIOD_MS);
+            // turn panel OFF
+            case CMD_OFF:
+                led_strip_clear(panel);
+                led_strip_refresh(panel);
+                break;
+
+            default:
+                ESP_LOGW(TAG, "Unhandled cmd req: %d", req);
         }
-        led_strip_clear(panel);
-        vTaskDelay(1000 / portTICK_PERIOD_MS);
+
+        vTaskDelay(10 / portTICK_PERIOD_MS);
     }
 }
