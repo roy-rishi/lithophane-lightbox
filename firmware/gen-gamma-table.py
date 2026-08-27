@@ -2,7 +2,7 @@
 # Adapted from Adafruit's Gamma Correction article:
 #   https://learn.adafruit.com/led-tricks-gamma-correction/the-longer-fix
 
-gamma = 2.8
+gamma = 2.2
 
 print("const uint8_t gamma_table[] = {", end='')
 for i in range(256):
