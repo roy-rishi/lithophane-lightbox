@@ -8,5 +8,7 @@ void led_init();
 void led_on();
 // Turn off the status LED
 void led_off();
+// Start a task for flashing the status pattern
+void status_led_start();
 
 #endif  // LED_H_

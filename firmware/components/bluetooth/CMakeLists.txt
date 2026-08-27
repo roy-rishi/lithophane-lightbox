@@ -1,3 +1,3 @@
-idf_component_register(SRCS "ble.c" "gap.c" "gatt.c"
+idf_component_register(SRCS "ble.c"
                        INCLUDE_DIRS "."
-                       REQUIRES nvs_flash bt)
+                       REQUIRES nvs_flash bt common)

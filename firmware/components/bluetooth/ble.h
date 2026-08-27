@@ -3,7 +3,7 @@
 
 #include <freertos/FreeRTOS.h>
 
-void ble_init(QueueHandle_t itc_queue);
+void ble_init();
 void ble_start();
 
 #endif  // BLE_

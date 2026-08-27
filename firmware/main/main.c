@@ -9,6 +9,8 @@
 
 #define TAG "MAIN"
 
+QueueHandle_t led_queue;
+
 void app_main(void) {
     // initialize status LED
     led_init();
@@ -23,29 +25,20 @@ void app_main(void) {
         ESP_LOGW(TAG, "Erased flash");
     }
 
-    // create inter-task message queue
-    QueueHandle_t msg_queue = xQueueCreate(5, sizeof(uint8_t));
-    if (msg_queue == NULL) {
+    // create status LED task message queue
+    led_queue = xQueueCreate(5, sizeof(uint8_t));
+    if (led_queue == NULL) {
         ESP_LOGE(TAG, "Failed to create queue");
         return;
     }
 
     // initialize and start BLE
-    ble_init(msg_queue);
+    ble_init();
     ble_start();
 
-    uint8_t req;
-    while (1) {
-        // wait for message from BLE task
-        xQueueReceive(msg_queue, &req, portMAX_DELAY);
+    status_led_start();
 
-        // set LED according to request
-        if (req == 1) {
-            led_on();
-            ESP_LOGI(TAG, "LED ON.");
-        } else {
-            led_off();
-            ESP_LOGI(TAG, "LED OFF.");
-        }
+    while (1) {
+        vTaskDelay(1000);
     }
 }

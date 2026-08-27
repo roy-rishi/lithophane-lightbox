@@ -1,3 +1,3 @@
-idf_component_register(SRCS "main.c" "led.c"
-                        REQUIRES esp_driver_gpio nvs_flash bt bluetooth
+idf_component_register(SRCS "main.c"
+                        REQUIRES nvs_flash bt bluetooth status_led common
                         INCLUDE_DIRS ".")

@@ -12,14 +12,16 @@
 #include "nimble/nimble_port.h"
 #include "services/gap/ble_svc_gap.h"
 #include "services/gatt/ble_svc_gatt.h"
+#include "status_codes.h"
 
 #define TAG "BLE"
 #define GAP_NAME "Lightbox"
 
-static QueueHandle_t msg_queue;
+extern QueueHandle_t led_queue;
 
 extern void ble_store_config_init(void);
 
+static int store_status_cb(struct ble_store_status_event* event, void* arg);
 static void nimble_host_task(void* param);
 static void start_advertising(void);
 static int gap_event_handler(struct ble_gap_event* event, void* arg);
@@ -38,17 +40,26 @@ static uint8_t esp_uri[] = {BLE_GAP_URI_PREFIX_HTTPS, '/', '/', 'e', 's', 'p', '
 static uint8_t own_addr_type;
 static uint8_t addr_val[6] = {0};
 
-static void nimble_host_task(void* param) {
-    ESP_LOGI(TAG, "NimBLE host task started!");
+// If an operation is about to fail, or has failed, due to storage capacity,
+// clear the BLE NVS storage. This removes old bonds.
+static int store_status_cb(struct ble_store_status_event* event, void* arg) {
+    int code = event->event_code;
+    ESP_LOGW(TAG, "Store status callback; code: %d", code);
+    int rc = ble_store_clear();
+    if (rc != 0)
+        ESP_LOGE(TAG, "Failed to clear BLE store");
+    return BLE_HS_EAGAIN;
+}
 
-    /* This function won't return until nimble_port_stop() is executed */
+static void nimble_host_task(void* param) {
+    ESP_LOGI(TAG, "NimBLE host task started");
     nimble_port_run();
 
     vTaskDelete(NULL);
 }
 
 static void start_advertising(void) {
-    /* Local variables */
+    Status code = ERROR;
     int rc = 0;
     const char* name;
     struct ble_hs_adv_fields adv_fields = {0};
@@ -80,6 +91,7 @@ static void start_advertising(void) {
     rc = ble_gap_adv_set_fields(&adv_fields);
     if (rc != 0) {
         ESP_LOGE(TAG, "failed to set advertising data, error code: %d", rc);
+        xQueueSend(led_queue, &code, 0);  // update status
         return;
     }
 
@@ -100,6 +112,7 @@ static void start_advertising(void) {
     rc = ble_gap_adv_rsp_set_fields(&rsp_fields);
     if (rc != 0) {
         ESP_LOGE(TAG, "failed to set scan response data, error code: %d", rc);
+        xQueueSend(led_queue, &code, 0);  // update status
         return;
     }
 
@@ -108,17 +121,22 @@ static void start_advertising(void) {
     adv_params.disc_mode = BLE_GAP_DISC_MODE_GEN;
 
     /* Set advertising interval */
-    adv_params.itvl_min = BLE_GAP_ADV_ITVL_MS(500);
-    adv_params.itvl_max = BLE_GAP_ADV_ITVL_MS(510);
+    adv_params.itvl_min = BLE_GAP_ADV_ITVL_MS(100);
+    adv_params.itvl_max = BLE_GAP_ADV_ITVL_MS(110);
 
     /* Start advertising */
     rc = ble_gap_adv_start(own_addr_type, NULL, BLE_HS_FOREVER, &adv_params,
                            gap_event_handler, NULL);
     if (rc != 0) {
-        ESP_LOGE(TAG, "failed to start advertising, error code: %d", rc);
+        ESP_LOGE(TAG, "Failed to start advertising, error: %d", rc);
+        xQueueSend(led_queue, &code, 0);  // update status
         return;
     }
-    ESP_LOGI(TAG, "advertising started!");
+    ESP_LOGI(TAG, "Advertising started");
+
+    // update status
+    code = ADVERTISING;
+    xQueueSend(led_queue, &code, 0);
 }
 
 /*
@@ -127,64 +145,61 @@ static void start_advertising(void) {
  * ble_gap_adv_start API and called when a GAP event arrives
  */
 static int gap_event_handler(struct ble_gap_event* event, void* arg) {
-    /* Local variables */
     int rc = 0;
-    struct ble_gap_conn_desc desc;
+    Status code = ERROR;
 
-    /* Handle different GAP event */
+    ESP_LOGI(TAG, "Gap event: %d", event->type);
     switch (event->type) {
-        /* Connect event */
+        // connect event
         case BLE_GAP_EVENT_CONNECT:
-            /* A new connection was established or a connection attempt failed. */
-            ESP_LOGI(TAG, "connection %s; status=%d",
+            ESP_LOGI(TAG, "Connection %s; status=%d",
                      event->connect.status == 0 ? "established" : "failed",
                      event->connect.status);
 
             if (event->connect.status != 0) {
-                /* Connection failed, restart advertising */
+                // connection failed, restart advertising
+                xQueueSend(led_queue, &code, 0);  // error status until advertising restarts
                 start_advertising();
             }
+            // connection success
+            code = CONNECTED;
+            xQueueSend(led_queue, &code, 0);  // connected status
             return rc;
 
-        /* Disconnect event */
+        // disconnect event
         case BLE_GAP_EVENT_DISCONNECT:
-            /* A connection was terminated, print connection descriptor */
-            ESP_LOGI(TAG, "disconnected from peer; reason=%d",
-                     event->disconnect.reason);
-
-            /* Restart advertising */
-            start_advertising();
+            ESP_LOGI(TAG, "Disconnected; reason=%d", event->disconnect.reason);
+            xQueueSend(led_queue, &code, 0);  // error status until advertising restarts
+            start_advertising();              // start advertising
             return rc;
 
-        /* Connection parameters update event */
+        // connection parameters update event
         case BLE_GAP_EVENT_CONN_UPDATE:
-            /* The central has updated the connection parameters. */
-            ESP_LOGI(TAG, "connection updated; status=%d",
-                     event->conn_update.status);
+            ESP_LOGI(TAG, "Connection updated; status=%d", event->conn_update.status);
             return rc;
 
-        /* Advertising complete event */
+        // advertising complete event
         case BLE_GAP_EVENT_ADV_COMPLETE:
-            /* Advertising completed, restart advertising */
-            ESP_LOGI(TAG, "advertise complete; reason=%d",
-                     event->adv_complete.reason);
-            start_advertising();
+            ESP_LOGI(TAG, "Advertising complete; reason=%d", event->adv_complete.reason);
+            xQueueSend(led_queue, &code, 0);  // error status until advertising restarts
+            start_advertising();              // restart advertising
             return rc;
 
-        /* Notification sent event */
-        case BLE_GAP_EVENT_NOTIFY_TX:
+        // the central is trying to establishing a new bond
+        case BLE_GAP_EVENT_REPEAT_PAIRING:
+            ESP_LOGW(TAG, "Repeat pairing mode rejected (not in pairing mode)");
+            return BLE_GAP_REPEAT_PAIRING_IGNORE;
+            // TODO: conditionally check if in pairing mode, and clear old bonds
+            // ble_store_clear();  // clear all old bonds
+            // return BLE_GAP_REPEAT_PAIRING_RETRY;
+
+        case BLE_GAP_EVENT_PARING_COMPLETE:
+            ESP_LOGI(TAG, "Pairing complete");
             return rc;
 
-        /* Subscribe event */
-        case BLE_GAP_EVENT_SUBSCRIBE:
-            return rc;
-
-        /* MTU update event */
-        case BLE_GAP_EVENT_MTU:
+        default:
             return rc;
     }
-
-    return rc;
 }
 
 /*
@@ -260,8 +275,9 @@ void adv_init(void) {
  *      - on_stack_sync is called when host has synced with controller
  */
 static void on_stack_reset(int reason) {
-    /* On reset, print reset reason to console */
     ESP_LOGI(TAG, "nimble stack reset, reset reason: %d", reason);
+    Status code = ERROR;
+    xQueueSend(led_queue, &code, 0);  // update status
 }
 
 static void on_stack_sync(void) {
@@ -293,15 +309,11 @@ static int led_chr_access(uint16_t conn_handle, uint16_t attr_handle, struct ble
                 if (ctxt->om->om_len == 1) {
                     // turn the LED on/off according to the operation bit
                     if (ctxt->om->om_data[0]) {
-                        ESP_LOGI(TAG, "LED ON requested");
-                        // enqueue ON message
-                        uint8_t item = 1;
-                        xQueueSend(msg_queue, &item, 0);
+                        ESP_LOGI(TAG, "ON requested");
+                        // TODO: enqueue request
                     } else {
                         ESP_LOGI(TAG, "LED OFF requested");
-                        // enqueue OFF message
-                        uint8_t item = 0;
-                        xQueueSend(msg_queue, &item, 0);
+                        // TODO: enqueue request
                     }
                 } else {
                     goto error;
@@ -345,7 +357,7 @@ static const struct ble_gatt_svc_def gatt_svr_svcs[] = {
     },
 };
 
-void ble_init(QueueHandle_t itc_queue) {
+void ble_init() {
     // initialize NimBLE stack
     ESP_LOGI(TAG, "Initializing NimBLE...");
     ESP_ERROR_CHECK(nimble_port_init());
@@ -361,17 +373,13 @@ void ble_init(QueueHandle_t itc_queue) {
     ble_gatts_count_cfg(gatt_svr_svcs);
     ble_gatts_add_svcs(gatt_svr_svcs);
 
-    // initialize NimBLE host config
-    /* Set host callbacks */
+    // initialize NimBLE host callbacks
     ble_hs_cfg.reset_cb = on_stack_reset;
     ble_hs_cfg.sync_cb = on_stack_sync;
     ble_hs_cfg.gatts_register_cb = gatt_svr_register_cb;
-    ble_hs_cfg.store_status_cb = ble_store_util_status_rr;
+    ble_hs_cfg.store_status_cb = store_status_cb;
     // store host configuration
     ble_store_config_init();
-
-    // save inter-task message queue handle
-    msg_queue = itc_queue;
 }
 
 void ble_start() {
