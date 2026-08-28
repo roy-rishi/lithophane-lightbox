@@ -1,0 +1,12 @@
+# This file was generated using idf.py save-defconfig or menuconfig [D] key. It can be edited manually.
+# Espressif IoT Development Framework (ESP-IDF) 6.0.2 Project Minimal Configuration
+#
+CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y
+CONFIG_BT_ENABLED=y
+CONFIG_BT_NIMBLE_ENABLED=y
+CONFIG_BT_NIMBLE_ROLE_CENTRAL=n
+CONFIG_BT_NIMBLE_ROLE_OBSERVER=n
+CONFIG_BT_NIMBLE_NVS_PERSIST=y
+CONFIG_BT_NIMBLE_MAX_BONDS=1
+CONFIG_LOG_DYNAMIC_LEVEL_CONTROL=n
+CONFIG_LOG_TAG_LEVEL_IMPL_NONE=y
