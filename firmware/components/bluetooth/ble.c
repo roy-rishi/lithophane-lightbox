@@ -17,7 +17,7 @@
 #define TAG "BLE"
 #define GAP_NAME "Lightbox"
 
-extern QueueHandle_t ble_status_q;
+extern QueueHandle_t ble_q;
 extern QueueHandle_t cmd_q;
 
 extern void ble_store_config_init(void);
@@ -92,7 +92,7 @@ static void start_advertising(void) {
     rc = ble_gap_adv_set_fields(&adv_fields);
     if (rc != 0) {
         ESP_LOGE(TAG, "failed to set advertising data, error code: %d", rc);
-        xQueueSend(ble_status_q, &code, 0);  // update status
+        xQueueSend(ble_q, &code, 0);  // update status
         return;
     }
 
@@ -113,7 +113,7 @@ static void start_advertising(void) {
     rc = ble_gap_adv_rsp_set_fields(&rsp_fields);
     if (rc != 0) {
         ESP_LOGE(TAG, "failed to set scan response data, error code: %d", rc);
-        xQueueSend(ble_status_q, &code, 0);  // update status
+        xQueueSend(ble_q, &code, 0);  // update status
         return;
     }
 
@@ -130,14 +130,14 @@ static void start_advertising(void) {
                            gap_event_handler, NULL);
     if (rc != 0) {
         ESP_LOGE(TAG, "Failed to start advertising, error: %d", rc);
-        xQueueSend(ble_status_q, &code, 0);  // update status
+        xQueueSend(ble_q, &code, 0);  // update status
         return;
     }
     ESP_LOGI(TAG, "Advertising started");
 
     // update status
     code = BLE_ADVERTISING;
-    xQueueSend(ble_status_q, &code, 0);
+    xQueueSend(ble_q, &code, 0);
 }
 
 /*
@@ -159,18 +159,18 @@ static int gap_event_handler(struct ble_gap_event* event, void* arg) {
 
             if (event->connect.status != 0) {
                 // connection failed, restart advertising
-                xQueueSend(ble_status_q, &code, 0);  // error status until advertising restarts
+                xQueueSend(ble_q, &code, 0);  // error status until advertising restarts
                 start_advertising();
             }
             // connection success
             code = BLE_CONNECTED;
-            xQueueSend(ble_status_q, &code, 0);  // connected status
+            xQueueSend(ble_q, &code, 0);  // connected status
             return rc;
 
         // disconnect event
         case BLE_GAP_EVENT_DISCONNECT:
             ESP_LOGI(TAG, "Disconnected; reason=%d", event->disconnect.reason);
-            xQueueSend(ble_status_q, &code, 0);  // error status until advertising restarts
+            xQueueSend(ble_q, &code, 0);  // error status until advertising restarts
             start_advertising();              // start advertising
             return rc;
 
@@ -182,7 +182,7 @@ static int gap_event_handler(struct ble_gap_event* event, void* arg) {
         // advertising complete event
         case BLE_GAP_EVENT_ADV_COMPLETE:
             ESP_LOGI(TAG, "Advertising complete; reason=%d", event->adv_complete.reason);
-            xQueueSend(ble_status_q, &code, 0);  // error status until advertising restarts
+            xQueueSend(ble_q, &code, 0);  // error status until advertising restarts
             start_advertising();              // restart advertising
             return rc;
 
@@ -278,7 +278,7 @@ void adv_init(void) {
 static void on_stack_reset(int reason) {
     ESP_LOGI(TAG, "nimble stack reset, reset reason: %d", reason);
     Status code = BLE_ERROR;
-    xQueueSend(ble_status_q, &code, 0);  // update status
+    xQueueSend(ble_q, &code, 0);  // update status
 }
 
 static void on_stack_sync(void) {

@@ -18,16 +18,22 @@
 #define TAG "MAIN"
 
 // message queues
-QueueHandle_t ble_status_q;
+QueueHandle_t ble_q;
+StaticQueue_t ble_q_ds;
+uint8_t ble_q_storage[5];
+
 QueueHandle_t cmd_q;
-QueueHandle_t button_q;
+StaticQueue_t cmd_q_ds;
+uint8_t cmd_q_storage[5];
+
+QueueHandle_t btn_q;
+StaticQueue_t btn_q_ds;
+uint8_t btn_q_storage[5];
+
 // addressable LED driver handle
 led_strip_handle_t panel;
 
 void app_main(void) {
-    // initialize status LED
-    led_init();
-
     // initialize flash storage
     ESP_LOGI(TAG, "Initializing NVS flash...");
     esp_err_t err = nvs_flash_init();
@@ -39,10 +45,10 @@ void app_main(void) {
     }
 
     // create message queues
-    ble_status_q = xQueueCreate(5, sizeof(uint8_t));
-    cmd_q = xQueueCreate(5, sizeof(uint8_t));
-    button_q = xQueueCreate(5, sizeof(uint8_t));
-    if (ble_status_q == NULL || cmd_q == NULL || button_q == NULL) {
+    ble_q = xQueueCreateStatic(5, 1, ble_q_storage, &ble_q_ds);
+    cmd_q = xQueueCreateStatic(5, 1, cmd_q_storage, &cmd_q_ds);
+    btn_q = xQueueCreateStatic(5, 1, btn_q_storage, &btn_q_ds);
+    if (!ble_q || !cmd_q || !btn_q) {
         ESP_LOGE(TAG, "Failed to create queue(s)");
         return;
     }
@@ -51,7 +57,8 @@ void app_main(void) {
     ble_init();
     ble_start();
 
-    // start status LED task
+    // initialize and start status LED
+    led_init();
     status_led_start();
 
     // initialize addressable LED driver
@@ -62,6 +69,7 @@ void app_main(void) {
     // initialize button interrupts
     button_init();
 
+    // start in IDLE state
     State cur_state = S_IDLE;
     while (1) {
         vTaskDelay(50 / portTICK_PERIOD_MS);
@@ -88,8 +96,8 @@ void app_main(void) {
                     for (int i = 20; i < 256; i++) {
                         fill_all(panel, i, i, i);
                         led_strip_refresh(panel);
-                        // wait (1960 ms total fade time)
-                        vTaskDelay(10 / portTICK_PERIOD_MS);
+                        // wait
+                        vTaskDelay(8 / portTICK_PERIOD_MS);
                     }
                     break;
 

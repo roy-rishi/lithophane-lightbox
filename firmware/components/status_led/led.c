@@ -9,7 +9,7 @@
 #define TAG "LED"
 #define STATUS_LED_PIN 2
 
-extern QueueHandle_t ble_status_q;
+extern QueueHandle_t ble_q;
 
 void led_init() {
     ESP_LOGI(TAG, "Initializing LED on pin %d...", STATUS_LED_PIN);
@@ -33,7 +33,7 @@ static void status_task(void* param) {
         if (status == BLE_CONNECTED) {
             // solid
             led_on();
-            xQueueReceive(ble_status_q, &status, portMAX_DELAY);
+            xQueueReceive(ble_q, &status, portMAX_DELAY);
         }
         if (status == BLE_ADVERTISING) {
             // flash twice
@@ -44,14 +44,14 @@ static void status_task(void* param) {
             led_on();
             vTaskDelay(50 / portTICK_PERIOD_MS);
             led_off();
-            xQueueReceive(ble_status_q, &status, 2000 / portTICK_PERIOD_MS);
+            xQueueReceive(ble_q, &status, 2000 / portTICK_PERIOD_MS);
         }
         if (status == BLE_ERROR) {
             // flash rapidly
             led_on();
             vTaskDelay(100 / portTICK_PERIOD_MS);
             led_off();
-            xQueueReceive(ble_status_q, &status, 100 / portTICK_PERIOD_MS);
+            xQueueReceive(ble_q, &status, 100 / portTICK_PERIOD_MS);
         }
     }
 

@@ -8,7 +8,7 @@
 
 #define BUTTON_PIN 15
 
-extern QueueHandle_t button_q;
+extern QueueHandle_t btn_q;
 
 static volatile int64_t last_time = 0;
 
@@ -27,21 +27,21 @@ static void IRAM_ATTR button_isr(void* arg) {
         // pressed for 4000 ms
         if (delta > 4000000LL) {
             ButtonPress data = PRESS_LONG;
-            xQueueSendFromISR(button_q, &data, 0);
+            xQueueSendFromISR(btn_q, &data, 0);
             return;
         }
 
         // pressed for 1000 ms
         if (delta > 1000000LL) {
             ButtonPress data = PRESS_MEDIUM;
-            xQueueSendFromISR(button_q, &data, 0);
+            xQueueSendFromISR(btn_q, &data, 0);
             return;
         }
 
         // pressed for 20 ms
         if (delta > 20000LL) {
             ButtonPress data = PRESS_SHORT;
-            xQueueSendFromISR(button_q, &data, 0);
+            xQueueSendFromISR(btn_q, &data, 0);
             return;
         }
     }

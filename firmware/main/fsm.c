@@ -10,7 +10,7 @@
 #define TAG "FSM"
 
 extern QueueHandle_t cmd_q;
-extern QueueHandle_t button_q;
+extern QueueHandle_t btn_q;
 extern led_strip_handle_t panel;
 
 State get_next_state(State cs) {
@@ -21,7 +21,7 @@ State get_next_state(State cs) {
     State ns = cs;
 
     // check for button press
-    if (xQueueReceive(button_q, &button_req, 0)) {
+    if (xQueueReceive(btn_q, &button_req, 0)) {
         ESP_LOGI(TAG, "Handling btn press: %d", button_req);
 
         switch (button_req) {
