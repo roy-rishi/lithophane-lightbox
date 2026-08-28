@@ -11,12 +11,14 @@
 #include "led_strip_types.h"
 #include "led_panel_utils.h"
 #include "status_codes.h"
+#include "button.h"
 
 #define TAG "MAIN"
 
 // message queues
 QueueHandle_t ble_status_q;
 QueueHandle_t cmd_q;
+QueueHandle_t button_q;
 // addressable LED driver handle
 led_strip_handle_t panel;
 
@@ -37,8 +39,9 @@ void app_main(void) {
     // create message queues
     ble_status_q = xQueueCreate(5, sizeof(uint8_t));
     cmd_q = xQueueCreate(5, sizeof(uint8_t));
-    if (ble_status_q == NULL || cmd_q == NULL) {
-        ESP_LOGE(TAG, "Failed to create queue");
+    button_q = xQueueCreate(5, sizeof(uint8_t));
+    if (ble_status_q == NULL || cmd_q == NULL || button_q == NULL) {
+        ESP_LOGE(TAG, "Failed to create queue(s)");
         return;
     }
 
@@ -54,33 +57,56 @@ void app_main(void) {
     led_strip_clear(panel);
     led_strip_refresh(panel);
 
-    Cmd req = {0};
+    // initialize button interrupts
+    button_init();
+
+    Cmd cmd_req = {0};
+    ButtonPress button_press = {0};
     while (1) {
-        // wait for command request
-        xQueueReceive(cmd_q, &req, portMAX_DELAY);
-
-        // handle command request
-        switch (req) {
-            // fade panel ON
-            case CMD_ON:
-                for (int i = 10; i < 256; i++) {
-                    fill_all(panel, i, i, i);
-                    led_strip_refresh(panel);
-                    // wait (1960 ms total fade time)
-                    vTaskDelay(8 / portTICK_PERIOD_MS);
-                }
+        // check for button press
+        if (xQueueReceive(button_q, &button_press, 10)) {
+            switch (button_press)
+            {
+            case PRESS_SHORT:
+                ESP_LOGI(TAG, "Button press SHORT");
                 break;
 
-            // turn panel OFF
-            case CMD_OFF:
-                led_strip_clear(panel);
-                led_strip_refresh(panel);
+            case PRESS_MEDIUM:
+                ESP_LOGI(TAG, "Button press MEDIUM");
                 break;
-
+            
+            case PRESS_LONG:
+                ESP_LOGI(TAG, "Button press LONG");
+                break;
+            
             default:
-                ESP_LOGW(TAG, "Unhandled cmd req: %d", req);
+                ESP_LOGW(TAG, "Unhandled button press: %d", button_press);
+            }
         }
 
-        vTaskDelay(10 / portTICK_PERIOD_MS);
+        // check for command request
+        if (xQueueReceive(cmd_q, &cmd_req, 10)) {
+            switch (cmd_req) {
+                // fade panel ON
+                case CMD_ON:
+                    for (int i = 10; i < 256; i++) {
+                        fill_all(panel, i, i, i);
+                        led_strip_refresh(panel);
+                        // wait (1960 ms total fade time)
+                        vTaskDelay(8 / portTICK_PERIOD_MS);
+                    }
+                    break;
+    
+                // turn panel OFF
+                case CMD_OFF:
+                    led_strip_clear(panel);
+                    led_strip_refresh(panel);
+                    break;
+    
+                default:
+                    ESP_LOGW(TAG, "Unhandled cmd req: %d", cmd_req);
+            }
+
+        }
     }
 }
