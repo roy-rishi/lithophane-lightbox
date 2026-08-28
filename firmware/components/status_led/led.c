@@ -28,14 +28,14 @@ void led_off() {
 static void status_task(void* param) {
     ESP_LOGI(TAG, "Status LED task started");
 
-    Status status = ERROR;
+    Status status = BLE_ERROR;
     while (1) {
-        if (status == CONNECTED) {
+        if (status == BLE_CONNECTED) {
             // solid
             led_on();
             xQueueReceive(ble_status_q, &status, portMAX_DELAY);
         }
-        if (status == ADVERTISING) {
+        if (status == BLE_ADVERTISING) {
             // flash twice
             led_on();
             vTaskDelay(50 / portTICK_PERIOD_MS);
@@ -46,7 +46,7 @@ static void status_task(void* param) {
             led_off();
             xQueueReceive(ble_status_q, &status, 2000 / portTICK_PERIOD_MS);
         }
-        if (status == ERROR) {
+        if (status == BLE_ERROR) {
             // flash rapidly
             led_on();
             vTaskDelay(100 / portTICK_PERIOD_MS);

@@ -24,8 +24,8 @@ static void IRAM_ATTR button_isr(void* arg) {
         // button released, check time held
         int64_t delta = now - last_time;
 
-        // pressed for 5000 ms
-        if (delta > 5000000LL) {
+        // pressed for 4000 ms
+        if (delta > 4000000LL) {
             ButtonPress data = PRESS_LONG;
             xQueueSendFromISR(button_q, &data, 0);
             return;
@@ -38,8 +38,8 @@ static void IRAM_ATTR button_isr(void* arg) {
             return;
         }
 
-        // pressed for 15 ms
-        if (delta > 15000LL) {
+        // pressed for 20 ms
+        if (delta > 20000LL) {
             ButtonPress data = PRESS_SHORT;
             xQueueSendFromISR(button_q, &data, 0);
             return;
@@ -58,9 +58,7 @@ void button_init() {
     };
     gpio_config(&config);
 
-    // initialize interrupt
+    // initialize and attach ISR
     gpio_install_isr_service(0);
-
-    // attach ISR
     gpio_isr_handler_add(BUTTON_PIN, button_isr, NULL);
 }

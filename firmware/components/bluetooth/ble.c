@@ -60,7 +60,7 @@ static void nimble_host_task(void* param) {
 }
 
 static void start_advertising(void) {
-    Status code = ERROR;
+    Status code = BLE_ERROR;
     int rc = 0;
     const char* name;
     struct ble_hs_adv_fields adv_fields = {0};
@@ -136,7 +136,7 @@ static void start_advertising(void) {
     ESP_LOGI(TAG, "Advertising started");
 
     // update status
-    code = ADVERTISING;
+    code = BLE_ADVERTISING;
     xQueueSend(ble_status_q, &code, 0);
 }
 
@@ -147,7 +147,7 @@ static void start_advertising(void) {
  */
 static int gap_event_handler(struct ble_gap_event* event, void* arg) {
     int rc = 0;
-    Status code = ERROR;
+    Status code = BLE_ERROR;
 
     ESP_LOGI(TAG, "Gap event: %d", event->type);
     switch (event->type) {
@@ -163,7 +163,7 @@ static int gap_event_handler(struct ble_gap_event* event, void* arg) {
                 start_advertising();
             }
             // connection success
-            code = CONNECTED;
+            code = BLE_CONNECTED;
             xQueueSend(ble_status_q, &code, 0);  // connected status
             return rc;
 
@@ -277,7 +277,7 @@ void adv_init(void) {
  */
 static void on_stack_reset(int reason) {
     ESP_LOGI(TAG, "nimble stack reset, reset reason: %d", reason);
-    Status code = ERROR;
+    Status code = BLE_ERROR;
     xQueueSend(ble_status_q, &code, 0);  // update status
 }
 

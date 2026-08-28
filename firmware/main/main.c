@@ -4,14 +4,16 @@
 #include <stdio.h>
 
 #include "ble.h"
+#include "button.h"
 #include "esp_log.h"
+#include "fsm.h"
 #include "led.h"
 #include "led_panel.h"
+#include "led_panel_pulse.h"
+#include "led_panel_utils.h"
 #include "led_strip.h"
 #include "led_strip_types.h"
-#include "led_panel_utils.h"
 #include "status_codes.h"
-#include "button.h"
 
 #define TAG "MAIN"
 
@@ -60,53 +62,45 @@ void app_main(void) {
     // initialize button interrupts
     button_init();
 
-    Cmd cmd_req = {0};
-    ButtonPress button_press = {0};
+    State cur_state = S_IDLE;
     while (1) {
-        // check for button press
-        if (xQueueReceive(button_q, &button_press, 10)) {
-            switch (button_press)
-            {
-            case PRESS_SHORT:
-                ESP_LOGI(TAG, "Button press SHORT");
-                break;
+        vTaskDelay(50 / portTICK_PERIOD_MS);
 
-            case PRESS_MEDIUM:
-                ESP_LOGI(TAG, "Button press MEDIUM");
-                break;
-            
-            case PRESS_LONG:
-                ESP_LOGI(TAG, "Button press LONG");
-                break;
-            
-            default:
-                ESP_LOGW(TAG, "Unhandled button press: %d", button_press);
-            }
-        }
+        // determine next state
+        State next_state = get_next_state(cur_state);
 
-        // check for command request
-        if (xQueueReceive(cmd_q, &cmd_req, 10)) {
-            switch (cmd_req) {
-                // fade panel ON
-                case CMD_ON:
-                    for (int i = 10; i < 256; i++) {
-                        fill_all(panel, i, i, i);
-                        led_strip_refresh(panel);
-                        // wait (1960 ms total fade time)
-                        vTaskDelay(8 / portTICK_PERIOD_MS);
-                    }
-                    break;
-    
-                // turn panel OFF
-                case CMD_OFF:
+        // handle state transition
+        if (next_state != cur_state) {
+            // TODO: actually handle BLE pairing on/off with accept list
+            ESP_LOGI(TAG, "Switching to state: %d", next_state);
+
+            if (cur_state == S_PAIRING)
+                led_panel_pulse_stop();
+
+            switch (next_state) {
+                case S_IDLE:
                     led_strip_clear(panel);
                     led_strip_refresh(panel);
                     break;
-    
+
+                case S_ON_SOLID:
+                    // TODO: read color from NVS flash
+                    for (int i = 20; i < 256; i++) {
+                        fill_all(panel, i, i, i);
+                        led_strip_refresh(panel);
+                        // wait (1960 ms total fade time)
+                        vTaskDelay(10 / portTICK_PERIOD_MS);
+                    }
+                    break;
+
+                case S_PAIRING:
+                    led_panel_pulse_start();
+
                 default:
-                    ESP_LOGW(TAG, "Unhandled cmd req: %d", cmd_req);
+                    break;
             }
 
+            cur_state = next_state;
         }
     }
 }
