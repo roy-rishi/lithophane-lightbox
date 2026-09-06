@@ -7,7 +7,7 @@
 #include "status_codes.h"
 
 #define TAG "LED"
-#define STATUS_LED_PIN 2
+#define STATUS_LED_PIN 17
 
 extern QueueHandle_t ble_q;
 

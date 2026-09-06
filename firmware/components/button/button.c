@@ -6,7 +6,7 @@
 #include "esp_timer.h"
 #include "status_codes.h"
 
-#define BUTTON_PIN 15
+#define BUTTON_PIN 9
 
 extern QueueHandle_t btn_q;
 
