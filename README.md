@@ -1,1 +1,1 @@
-# Lithopane Lightbox
+# Lithophane Lightbox
