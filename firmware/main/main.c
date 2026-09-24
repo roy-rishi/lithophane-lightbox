@@ -93,11 +93,12 @@ void app_main(void) {
 
                 case S_ON_SOLID:
                     // TODO: read color from NVS flash
-                    for (int i = 20; i < 256; i++) {
+                    const int max_bright = 0.85 * 255;  // 85% brightness (70% power)
+                    for (int i = 20; i < max_bright; i++) {
                         fill_all(panel, i, i, i);
                         led_strip_refresh(panel);
                         // wait
-                        vTaskDelay(8 / portTICK_PERIOD_MS);
+                        vTaskDelay(9 / portTICK_PERIOD_MS);
                     }
                     break;
 

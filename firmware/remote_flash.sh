@@ -15,4 +15,4 @@ scp firmware.bin $REMOTE:$ESPTOOL_VENV
 
 # run flash utility on remote
 ARGS=$(tr '\n' ' ' < flash_app_args)  # get app-only flash args
-ssh "$REMOTE" "cd '$ESPTOOL_VENV' && ./bin/python -m esptool --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default-reset --after=hard-reset write-flash $ARGS"
+ssh "$REMOTE" "cd '$ESPTOOL_VENV' && ./bin/python -m esptool --chip esp32s3 -p /dev/ttyACM0 -b 460800 --before=default-reset --after=hard-reset write-flash $ARGS"
